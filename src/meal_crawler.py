@@ -18,7 +18,7 @@ def get_meal_info(api_key, school_code, start_date, end_date):
     params = {
         "KEY": api_key,
         "Type": "json",
-        "ATPT_OFCDC_SC_CODE": "P10",  # 전라북도교육청
+        "ATPT_OFCDC_SC_CODE": "J10",  # 경기도교육청
         "SD_SCHUL_CODE": school_code,  # 학교코드
         "MLSV_FROM_YMD": start_date,
         "MLSV_TO_YMD": end_date
@@ -50,7 +50,7 @@ def generate_meal_html(meals, school_name):
         }
 
         body {
-            background: #4A90E2;
+            background: #008b8b;
             font-family: 'SeoulAlrim', sans-serif;
             margin: 0; 
             padding: 0;
@@ -63,9 +63,9 @@ def generate_meal_html(meals, school_name):
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: linear-gradient(90deg, #4A90E2, #357ABD);
+            background: linear-gradient(90deg, #008b8b, #006666);
             padding: 30px 90px;
-            box-shadow: 0 8px 32px rgba(53, 122, 189, 0.18);
+            box-shadow: 0 8px 32px rgba(0, 139, 139, 0.18);
             flex-shrink: 0;
         }
 
@@ -495,7 +495,7 @@ def generate_meal_html(meals, school_name):
             max-width: 2000px;
             background: #FFFFFF;
             border-radius: 20px;
-            box-shadow: 0 8px 40px rgba(53, 122, 189, 0.18);
+            box-shadow: 0 8px 40px rgba(0, 139, 139, 0.18);
             overflow-x: visible;
             max-height: none;
         }
@@ -509,7 +509,7 @@ def generate_meal_html(meals, school_name):
         }
 
         .meal-date {
-            background: #E3F2FD;
+            background: #E0F7F7;
             border-radius: 15px 15px 0 0;
             padding: 12px;
             font-size: 2rem;
@@ -623,7 +623,7 @@ def generate_meal_html(meals, school_name):
             padding: 15px;
             background: #FFFFFF;
             border-radius: 15px;
-            box-shadow: 0 4px 20px rgba(53, 122, 189, 0.1);
+            box-shadow: 0 4px 20px rgba(0, 139, 139, 0.1);
         }
     """
 
@@ -736,8 +736,8 @@ def generate_meal_html(meals, school_name):
 
         async function fetchWeather() {
             const apiKey = '""" + os.getenv("OPENWEATHER_API_KEY", "") + """';
-            const lat = 35.9568;
-            const lon = 126.9689;
+            const lat = 37.7599;
+            const lon = 126.7733;
             const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
             
             try {
@@ -1064,8 +1064,8 @@ def generate_meal_html(meals, school_name):
 def main():
     # API 설정
     API_KEY = os.getenv("NEIS_API_KEY", "dafe93db7c0d4c6eb8ba9a8f5aaee96b")  # 환경변수에서 가져오거나 기본값 사용
-    SCHOOL_CODE = "8352158"  # 남성중학교
-    SCHOOL_NAME = "남성중학교"
+    SCHOOL_CODE = "7681015"  # 율곡중학교
+    SCHOOL_NAME = "율곡중학교"
     
     # 날짜 설정
     today = datetime.now()

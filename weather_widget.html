@@ -13,7 +13,7 @@
         }
 
         body {
-            background: #4A90E2;
+            background: #008b8b;
             font-family: 'SeoulAlrim', sans-serif;
             margin: 0; 
             padding: 0;
@@ -26,9 +26,9 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: linear-gradient(90deg, #4A90E2, #357ABD);
+            background: linear-gradient(90deg, #008b8b, #006666);
             padding: 30px 90px;
-            box-shadow: 0 8px 32px rgba(53, 122, 189, 0.18);
+            box-shadow: 0 8px 32px rgba(0, 139, 139, 0.18);
             flex-shrink: 0;
         }
 
@@ -142,7 +142,7 @@
             margin: 40px auto;
             background: #FFFFFF;
             border-radius: 20px;
-            box-shadow: 0 8px 40px rgba(53, 122, 189, 0.18);
+            box-shadow: 0 8px 40px rgba(0, 139, 139, 0.18);
             gap: 0;
             width: 95%;
             max-width: 2000px;
@@ -158,15 +158,15 @@
         }
 
         .weather-card {
-            background: linear-gradient(135deg, #E3F2FD, #F5F9FF);
+            background: linear-gradient(135deg, #E0F7F7, #F5FFFE);
             border-radius: 20px;
             padding: 30px;
-            box-shadow: 0 8px 32px rgba(53, 122, 189, 0.15);
-            border: 1px solid #BBDEFB;
+            box-shadow: 0 8px 32px rgba(0, 139, 139, 0.15);
+            border: 1px solid #8fd1d1;
         }
 
         .current-weather {
-            background: linear-gradient(135deg, #4A90E2, #357ABD);
+            background: linear-gradient(135deg, #008b8b, #006666);
             color: white;
         }
 
@@ -174,7 +174,7 @@
             font-size: 2.5rem;
             font-weight: 900;
             margin-bottom: 20px;
-            color: #357ABD;
+            color: #008b8b;
         }
 
         .current-weather .weather-title {
@@ -295,7 +295,7 @@
         .forecast-title {
             font-size: 2.5rem;
             font-weight: 900;
-            color: #357ABD;
+            color: #008b8b;
             margin-bottom: 20px;
         }
 
@@ -306,18 +306,18 @@
         }
 
         .forecast-card {
-            background: linear-gradient(135deg, #E3F2FD, #F5F9FF);
+            background: linear-gradient(135deg, #E0F7F7, #F5FFFE);
             border-radius: 15px;
             padding: 25px;
             text-align: center;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-            border: 1px solid #BBDEFB;
+            box-shadow: 0 4px 16px rgba(0, 139, 139, 0.15);
+            border: 1px solid #8fd1d1;
         }
 
         .forecast-date {
             font-size: 1.8rem;
             font-weight: 700;
-            color: #357ABD;
+            color: #008b8b;
             margin-bottom: 15px;
         }
 
@@ -426,7 +426,7 @@
         </div>
         <div class="header-right">
             <div class="date-time" id="date-time"></div>
-            <div class="school-name">남성중학교</div>
+            <div class="school-name">율곡중학교</div>
         </div>
     </header>
 
@@ -532,8 +532,8 @@
     <script>
     // 설정 정보
     const CONFIG = {
-        ANYANG_LAT: 35.9568,
-        ANYANG_LON: 126.9689,
+        ANYANG_LAT: 37.9782,
+        ANYANG_LON: 126.8909,
         OPENWEATHER_API_KEY: '91fff999310c2bdea1978b3f0925fb38',
         AIRKOREA_API_KEY: 'kQmTZcm7bg25bgTZQKwjvdAFJsn0YMD6UTSzM93O/QSKHeNNr0eBWjfqJmJOO2Z+L8EK4TTsSk5jKMKenr4BHw=='
     };
@@ -788,7 +788,7 @@
     // 대기질 데이터를 화면에 표시하는 함수
     function displayAirQualityData(data) {
         // 측정소 정보 표시
-        document.getElementById('station-name').textContent = data.stationName || '모현동';
+        document.getElementById('station-name').textContent = data.stationName || '파주읍';
         
         // PM10
         const pm10Value = data.pm10Value === "-" || data.pm10Value === null ? 0 : parseFloat(data.pm10Value);
@@ -817,12 +817,12 @@
                 returnType: 'json',
                 numOfRows: '10', // 요청 데이터 수를 줄여서 API 부하 감소
                 pageNo: '1',
-                stationName: '모현동',
+                stationName: '파주읍',
                 dataTerm: 'DAILY',
                 ver: '1.0'
             });
             
-            console.log('전북 익산 모현동 측정소 데이터 요청 중...');
+            console.log('경기도 파주시 파주읍 측정소 데이터 요청 중...');
             
             const res = await fetch(`${url}?${queryParams}`);
             
@@ -914,7 +914,7 @@
     function generateMockAirQualityData() {
         const now = new Date();
         const mockData = {
-            stationName: '모현동',
+            stationName: '파주읍',
             dataTime: now.toLocaleString('ko-KR') + ' (모의 데이터)',
             pm10Value: Math.floor(Math.random() * 20) + 5,  // 5-25 범위 (좋음)
             pm25Value: Math.floor(Math.random() * 10) + 2   // 2-12 범위 (좋음)
@@ -937,7 +937,7 @@
             document.getElementById(`${pollutant}-card`).className = 'air-quality-card';
         });
         
-        document.getElementById('station-name').textContent = '모현동';
+        document.getElementById('station-name').textContent = '파주읍';
     }
 
     // 캐시 키 상수

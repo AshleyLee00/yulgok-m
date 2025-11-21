@@ -3,7 +3,7 @@
     <html lang="ko">
     <head>
         <meta charset="UTF-8">
-        <title>남성중학교 공지사항</title>
+        <title>율곡중학교 공지사항</title>
         <style>
         @font-face {
             font-family: 'SeoulAlrim';
@@ -13,7 +13,7 @@
         }
 
         body {
-            background: #4A90E2;
+            background: #008b8b;
             font-family: 'SeoulAlrim', sans-serif;
             margin: 0; 
             padding: 0;
@@ -26,9 +26,9 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: linear-gradient(90deg, #4A90E2, #357ABD);
+            background: linear-gradient(90deg, #008b8b, #006666);
             padding: 30px 90px;
-            box-shadow: 0 8px 32px rgba(53, 122, 189, 0.18);
+            box-shadow: 0 8px 32px rgba(0, 139, 139, 0.18);
             flex-shrink: 0;
         }
 
@@ -142,7 +142,7 @@
             margin: 40px auto;
             background: #FFFFFF;
             border-radius: 20px;
-            box-shadow: 0 8px 40px rgba(53, 122, 189, 0.18);
+            box-shadow: 0 8px 40px rgba(0, 139, 139, 0.18);
             gap: 0;
             width: 95%;
             max-width: 2000px;
@@ -152,7 +152,7 @@
         .content-box {
             background: #fff;
             padding: 30px 60px 30px 80px;
-            box-shadow: 0 10px 40px rgba(53,122,189,0.18);
+            box-shadow: 0 10px 40px rgba(0, 139, 139, 0.18);
             border-radius: 20px 0 0 20px;
             flex: 1;
             min-width: 0;
@@ -196,7 +196,7 @@
             height: calc(100% - 60px);  /* 상하 패딩 30px을 고려하여 계산 */
             border-radius: 0 20px 20px 0;
             object-fit: cover; 
-            box-shadow: 0 10px 40px rgba(53,122,189,0.18);
+            box-shadow: 0 10px 40px rgba(0, 139, 139, 0.18);
             flex-shrink: 0;
             align-self: center;
             opacity: 1;
@@ -247,16 +247,16 @@
             <div class="header-right">
                 <div class="weather">날씨 정보를 불러오는 중...</div>
                 <div class="date-time" id="date-time"></div>
-                <div class="school-name">남성중학교</div>
+                <div class="school-name">율곡중학교</div>
             </div>
         </header>
         <div class="main-content">
             <div class="content-box">
                 <table class="content-list">
-                    <tr><td>렙타일 페스타 프로그램 참여자를 모집합니다.(~11/12)</td><td>2025-11-06</td></tr><tr><td>2025년 남성중학교 별무리 축제 리플릿!!!!!</td><td>2025-11-04</td></tr><tr><td>2025년 전북특별자치도교육감배 학생 넷볼대회(~11/5)</td><td>2025-10-28</td></tr><tr><td>[안내] 2026학년도 전북과학고등학교영재교육원 영재교육대상자 모집</td><td>2025-10-28</td></tr><tr><td>아동안전지킴이집 현황(전북경찰청)</td><td>2025-10-24</td></tr><tr><td>실종예방 사전등록 가이드(전북경찰청)</td><td>2025-10-24</td></tr><tr><td>2025. 중1대상 &#39;교과서와 함께하는 수학체험교실&#39; 참여 안내</td><td>2025-10-22</td></tr>
+                    <tr><td>2026학년도 중학교입학 체육특기자 선발 계획 안내 </td><td>2025-09-25</td></tr><tr><td>2025학년도 2학기 임시시간표 안내</td><td>2025-08-14</td></tr><tr><td>2026학년도 파주시 중학교 학교군(구) 행정예고 및 안내</td><td>2025-06-23</td></tr><tr><td>2025학년도 제1회 개방 이사(감사) 추천위원회 개최 공고</td><td>2025-04-04</td></tr><tr><td>재활용품 분리 배출 가이드라인</td><td>2025-03-27</td></tr><tr><td>2025학년도 교육활동보호 예방교육 운영 계획</td><td>2025-03-20</td></tr><tr><td>「경기도 어린이 ㆍ 청소년 교통비 지원사업 」 홍보 </td><td>2025-03-14</td></tr>
                 </table>
             </div>
-            <img class="school-img" src="images/남성중학교-봄.jpeg" alt="학교 전경">
+            <img class="school-img" src="images/율곡중학교.jpg" alt="학교 전경">
         </div>
         <script>
         // 날씨 캐시 설정
@@ -481,7 +481,7 @@
         }
 
         async function fetchWeather() {
-            const apiKey = '91fff999310c2bdea1978b3f0925fb38';
+            const apiKey = '';
             const lat = 35.9568;
             const lon = 126.9689;
             const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
@@ -514,29 +514,10 @@
 
         // 계절별 이미지 슬라이드 기능
         function getSeasonalImages() {
-            const now = new Date();
-            const month = now.getMonth() + 1; // 1-12월
-            
-            if (month >= 3 && month <= 5) {
-                // 봄 (3월~5월)
-                return [
-                    'images/남성중학교-봄.jpeg',
-                    'images/남성중학교-봄2.jpeg',
-                    'images/남성중학교-봄3.jpeg'
-                ];
-            } else if (month >= 6 && month <= 9) {
-                // 여름 (6월~9월)
-                return [
-                    'images/남성중학교-여름.jpg',
-                    'images/남성중학교-여름2.jpg'
-                ];
-            } else {
-                // 가을/겨울 (10월~2월)
-                return [
-                    'images/남성중학교-가을.jpg',
-                    'images/남성중학교-가을2.jpg'
-                ];
-            }
+            // 율곡중학교 이미지 경로
+            return [
+                'images/율곡중학교.jpg'
+            ];
         }
 
         let currentImageIndex = 0;

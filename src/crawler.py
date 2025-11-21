@@ -26,7 +26,7 @@ def generate_html_base(title, items, school_name, item_type):
         }
 
         body {
-            background: #4A90E2;
+            background: #008b8b;
             font-family: 'SeoulAlrim', sans-serif;
             margin: 0; 
             padding: 0;
@@ -39,9 +39,9 @@ def generate_html_base(title, items, school_name, item_type):
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: linear-gradient(90deg, #4A90E2, #357ABD);
+            background: linear-gradient(90deg, #008b8b, #006666);
             padding: 30px 90px;
-            box-shadow: 0 8px 32px rgba(53, 122, 189, 0.18);
+            box-shadow: 0 8px 32px rgba(0, 139, 139, 0.18);
             flex-shrink: 0;
         }
 
@@ -155,7 +155,7 @@ def generate_html_base(title, items, school_name, item_type):
             margin: 40px auto;
             background: #FFFFFF;
             border-radius: 20px;
-            box-shadow: 0 8px 40px rgba(53, 122, 189, 0.18);
+            box-shadow: 0 8px 40px rgba(0, 139, 139, 0.18);
             gap: 0;
             width: 95%;
             max-width: 2000px;
@@ -165,7 +165,7 @@ def generate_html_base(title, items, school_name, item_type):
         .content-box {
             background: #fff;
             padding: 30px 60px 30px 80px;
-            box-shadow: 0 10px 40px rgba(53,122,189,0.18);
+            box-shadow: 0 10px 40px rgba(0, 139, 139, 0.18);
             border-radius: 20px 0 0 20px;
             flex: 1;
             min-width: 0;
@@ -209,7 +209,7 @@ def generate_html_base(title, items, school_name, item_type):
             height: calc(100% - 60px);  /* 상하 패딩 30px을 고려하여 계산 */
             border-radius: 0 20px 20px 0;
             object-fit: cover; 
-            box-shadow: 0 10px 40px rgba(53,122,189,0.18);
+            box-shadow: 0 10px 40px rgba(0, 139, 139, 0.18);
             flex-shrink: 0;
             align-self: center;
             opacity: 1;
@@ -507,29 +507,10 @@ def generate_html_base(title, items, school_name, item_type):
 
         // 계절별 이미지 슬라이드 기능
         function getSeasonalImages() {
-            const now = new Date();
-            const month = now.getMonth() + 1; // 1-12월
-            
-            if (month >= 3 && month <= 5) {
-                // 봄 (3월~5월)
-                return [
-                    'images/남성중학교-봄.jpeg',
-                    'images/남성중학교-봄2.jpeg',
-                    'images/남성중학교-봄3.jpeg'
-                ];
-            } else if (month >= 6 && month <= 9) {
-                // 여름 (6월~9월)
-                return [
-                    'images/남성중학교-여름.jpg',
-                    'images/남성중학교-여름2.jpg'
-                ];
-            } else {
-                // 가을/겨울 (10월~2월)
-                return [
-                    'images/남성중학교-가을.jpg',
-                    'images/남성중학교-가을2.jpg'
-                ];
-            }
+            // 율곡중학교 이미지 경로
+            return [
+                'images/율곡중학교.jpg'
+            ];
         }
 
         let currentImageIndex = 0;
@@ -616,7 +597,7 @@ def generate_html_base(title, items, school_name, item_type):
                     { "".join(f"<tr><td>{item['title']}</td><td>{item['date']}</td></tr>" for item in items) }
                 </table>
             </div>
-            <img class="school-img" src="images/남성중학교-봄.jpeg" alt="학교 전경">
+            <img class="school-img" src="images/율곡중학교.jpg" alt="학교 전경">
         </div>
         <script>{js_code}</script>
     </body>
@@ -633,9 +614,9 @@ def generate_letter_html(letters, school_name):
 def main():
     # 학교 정보
     school_info = {
-        "name": "남성중학교",
-        "notice_url": "https://school.jbedu.kr/rss/jb-namsung/M010602",
-        "letter_url": "https://school.jbedu.kr/jb-namsung/M010601/"  # 가정통신문 HTML 페이지
+        "name": "율곡중학교",
+        "notice_url": "http://yulgok-m.goepj.kr/yulgok-m/na/ntt/selectRssFeed.do?mi=10151&bbsId=6774",
+        "letter_url": "https://yulgok-m.goepj.kr/yulgok-m/na/ntt/selectRssFeed.do?mi=10153&bbsId=6776"  # 가정통신문 RSS 피드
     }
     
     # 공지사항 크롤링

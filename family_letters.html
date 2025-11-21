@@ -3,7 +3,7 @@
     <html lang="ko">
     <head>
         <meta charset="UTF-8">
-        <title>남성중학교 가정통신문</title>
+        <title>율곡중학교 가정통신문</title>
         <style>
         @font-face {
             font-family: 'SeoulAlrim';
@@ -13,7 +13,7 @@
         }
 
         body {
-            background: #4A90E2;
+            background: #008b8b;
             font-family: 'SeoulAlrim', sans-serif;
             margin: 0; 
             padding: 0;
@@ -26,9 +26,9 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: linear-gradient(90deg, #4A90E2, #357ABD);
+            background: linear-gradient(90deg, #008b8b, #006666);
             padding: 30px 90px;
-            box-shadow: 0 8px 32px rgba(53, 122, 189, 0.18);
+            box-shadow: 0 8px 32px rgba(0, 139, 139, 0.18);
             flex-shrink: 0;
         }
 
@@ -142,7 +142,7 @@
             margin: 40px auto;
             background: #FFFFFF;
             border-radius: 20px;
-            box-shadow: 0 8px 40px rgba(53, 122, 189, 0.18);
+            box-shadow: 0 8px 40px rgba(0, 139, 139, 0.18);
             gap: 0;
             width: 95%;
             max-width: 2000px;
@@ -152,7 +152,7 @@
         .content-box {
             background: #fff;
             padding: 30px 60px 30px 80px;
-            box-shadow: 0 10px 40px rgba(53,122,189,0.18);
+            box-shadow: 0 10px 40px rgba(0, 139, 139, 0.18);
             border-radius: 20px 0 0 20px;
             flex: 1;
             min-width: 0;
@@ -196,7 +196,7 @@
             height: calc(100% - 60px);  /* 상하 패딩 30px을 고려하여 계산 */
             border-radius: 0 20px 20px 0;
             object-fit: cover; 
-            box-shadow: 0 10px 40px rgba(53,122,189,0.18);
+            box-shadow: 0 10px 40px rgba(0, 139, 139, 0.18);
             flex-shrink: 0;
             align-self: center;
             opacity: 1;
@@ -247,16 +247,16 @@
             <div class="header-right">
                 <div class="weather">날씨 정보를 불러오는 중...</div>
                 <div class="date-time" id="date-time"></div>
-                <div class="school-name">남성중학교</div>
+                <div class="school-name">율곡중학교</div>
             </div>
         </header>
         <div class="main-content">
             <div class="content-box">
                 <table class="content-list">
-                    <tr><td>2026학년도 2학년 수학여행 희망 여행지 조사</td><td>2025-11-18</td></tr><tr><td>익산학생교육문화관 진로탐색&심리코칭[8기] 모집</td><td>2025-11-13</td></tr><tr><td>2025 학교도서관 학부모 연수 운영 안내</td><td>2025-11-11</td></tr><tr><td>11월 대입 특강 및 진로진학 상담 신청 안내</td><td>2025-11-07</td></tr><tr><td>마음건강 소통창구 안내</td><td>2025-10-30</td></tr><tr><td>2026학년도 2학년 한문 및 일본어 선택 조사</td><td>2025-10-28</td></tr><tr><td>2025. 전북 외국어교육 박람회 Quiz 안내장</td><td>2025-10-23</td></tr>
+                    <tr><td>2025학년도 2학기 1, 2학년 2차 지필평가 실시 안내</td><td>2025-11-21</td></tr><tr><td>2025학년도 12월 야구부 운영비 납부 안내 가정통신문</td><td>2025-11-17</td></tr><tr><td>기초학력(3R's) 진단검사 실시 안내 </td><td>2025-11-13</td></tr><tr><td>2025학년도 경기교육정책 자체평가 하반기 현장 설문조사</td><td>2025-11-10</td></tr><tr><td>2026학년도 대학수학능력시험에 따른 등교시간 조정 안내</td><td>2025-11-07</td></tr><tr><td>2025년 경기교육정책 자체평가 하반기 현장 설문조사 학생 참여 안내</td><td>2025-11-06</td></tr><tr><td>2025학년도 졸업앨범 구입 희망 여부 조사 및 구입 비용 수납 안내 </td><td>2025-11-04</td></tr>
                 </table>
             </div>
-            <img class="school-img" src="images/남성중학교-봄.jpeg" alt="학교 전경">
+            <img class="school-img" src="images/율곡중학교.jpg" alt="학교 전경">
         </div>
         <script>
         // 날씨 캐시 설정
@@ -481,7 +481,7 @@
         }
 
         async function fetchWeather() {
-            const apiKey = '91fff999310c2bdea1978b3f0925fb38';
+            const apiKey = '';
             const lat = 35.9568;
             const lon = 126.9689;
             const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
@@ -514,29 +514,10 @@
 
         // 계절별 이미지 슬라이드 기능
         function getSeasonalImages() {
-            const now = new Date();
-            const month = now.getMonth() + 1; // 1-12월
-            
-            if (month >= 3 && month <= 5) {
-                // 봄 (3월~5월)
-                return [
-                    'images/남성중학교-봄.jpeg',
-                    'images/남성중학교-봄2.jpeg',
-                    'images/남성중학교-봄3.jpeg'
-                ];
-            } else if (month >= 6 && month <= 9) {
-                // 여름 (6월~9월)
-                return [
-                    'images/남성중학교-여름.jpg',
-                    'images/남성중학교-여름2.jpg'
-                ];
-            } else {
-                // 가을/겨울 (10월~2월)
-                return [
-                    'images/남성중학교-가을.jpg',
-                    'images/남성중학교-가을2.jpg'
-                ];
-            }
+            // 율곡중학교 이미지 경로
+            return [
+                'images/율곡중학교.jpg'
+            ];
         }
 
         let currentImageIndex = 0;

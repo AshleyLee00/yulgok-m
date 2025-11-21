@@ -12,9 +12,9 @@ load_dotenv()
 
 # 학교 및 API 정보
 API_KEY = os.getenv("NEIS_API_KEY", "dafe93db7c0d4c6eb8ba9a8f5aaee96b")  # 환경변수에서 가져오거나 기본값 사용
-ATPT_OFCDC_SC_CODE = "P10"  # 전라북도교육청
-SD_SCHUL_CODE = "8352158"   # 남성중학교
-SCHOOL_NAME = "남성중학교"
+ATPT_OFCDC_SC_CODE = "J10"  # 경기도교육청
+SD_SCHUL_CODE = "7681015"   # 율곡중학교
+SCHOOL_NAME = "율곡중학교"
 
 # 학사일정 가져오기 함수
 def get_schedule_info(api_key, atpt_code, school_code, year, month):
@@ -192,7 +192,7 @@ def generate_schedule_html(schedules, school_name, year, month):
             font-style: normal;
         }
         body { 
-            background: #4A90E2; 
+            background: #008b8b; 
             font-family: 'SeoulAlrim', sans-serif; 
             margin: 0; 
             padding: 0; 
@@ -203,9 +203,9 @@ def generate_schedule_html(schedules, school_name, year, month):
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: linear-gradient(90deg, #4A90E2, #357ABD);
+            background: linear-gradient(90deg, #008b8b, #006666);
             padding: 30px 90px;
-            box-shadow: 0 8px 32px rgba(53, 122, 189, 0.18);
+            box-shadow: 0 8px 32px rgba(0, 139, 139, 0.18);
             flex-shrink: 0;
             min-height: 80px;
             box-sizing: border-box;
@@ -271,7 +271,7 @@ def generate_schedule_html(schedules, school_name, year, month):
         .main-content {
             background: #fff;
             border-radius: 20px;
-            box-shadow: 0 8px 40px rgba(53, 122, 189, 0.18);
+            box-shadow: 0 8px 40px rgba(0, 139, 139, 0.18);
             margin: 20px auto;
             padding: 20px 60px;
             max-width: 2000px;
@@ -285,7 +285,7 @@ def generate_schedule_html(schedules, school_name, year, month):
         }
         .calendar-section h2 {
             font-size: 3.5rem;
-            color: #357ABD;
+            color: #008b8b;
             margin-bottom: 15px;
             font-weight: 700;
             margin-top: 6px;
@@ -325,8 +325,8 @@ def generate_schedule_html(schedules, school_name, year, month):
         .table-calendar th {
             text-align: center;
             padding: 10px 4px;
-            background: #E3F2FD;
-            color: #357ABD;
+            background: #E0F7F7;
+            color: #008b8b;
             font-weight: 700;
             border: 1px solid #eee;
         }
@@ -343,8 +343,8 @@ def generate_schedule_html(schedules, school_name, year, month):
             transition: background 0.2s;
         }
         .event-circle {
-            background: #E3F2FD;
-            color: #4A90E2;
+            background: #E0F7F7;
+            color: #008b8b;
         }
         .sunday {
             color: #e23a3a !important;
@@ -392,7 +392,7 @@ def generate_schedule_html(schedules, school_name, year, month):
         }
         .event-list-part h3 {
             font-size: 2rem;
-            color: #357ABD;
+            color: #008b8b;
             margin-bottom: 10px;
             font-weight: 700;
         }
@@ -407,7 +407,7 @@ def generate_schedule_html(schedules, school_name, year, month):
             text-align: left;
         }
         .event-list-table td:first-child {
-            color: #357ABD;
+            color: #008b8b;
             font-weight: 700;
             width: 120px;
             font-size: 2rem;
@@ -1002,8 +1002,8 @@ def generate_schedule_html(schedules, school_name, year, month):
 
         async function fetchWeather() {
             const apiKey = '""" + os.getenv("OPENWEATHER_API_KEY", "") + """';
-            const lat = 35.9568;
-            const lon = 126.9689;
+            const lat = 37.7599;
+            const lon = 126.7733;
             const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
             
             try {
@@ -1231,7 +1231,7 @@ def generate_schedule_html(schedules, school_name, year, month):
         </header>
         <div class="main-content">
             <div class="calendar-section">
-                <h2 style="font-size:3.3rem; color:#357ABD; margin-bottom:10px;">{year}년 {month}월</h2>
+                <h2 style="font-size:3.3rem; color:#008b8b; margin-bottom:10px;">{year}년 {month}월</h2>
                 {calendar_html}
             </div>
             <div class="event-list-section">

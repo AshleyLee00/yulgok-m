@@ -86,23 +86,48 @@ def crawl_school_notices(url, site_name=None):
                 # 제목 추출
                 title_elem = item.find('title')
                 title = title_elem.text if title_elem is not None else ""
+                if title.startswith('<![CDATA['):
+                    title = title[9:-3]  # CDATA 태그 제거
                 
                 # 링크 추출
                 link_elem = item.find('link')
                 link = link_elem.text if link_elem is not None else ""
+                if link.startswith('<![CDATA['):
+                    link = link[9:-3]  # CDATA 태그 제거
+                
+                # 상대 경로인 경우 절대 경로로 변환
+                if link and not link.startswith('http'):
+                    base_url = re.search(r'https?://[^/]+', url)
+                    if base_url:
+                        link = urljoin(base_url.group(0), link)
                 
                 # 날짜 추출
                 date_elem = item.find('pubDate')
                 date_text = date_elem.text if date_elem is not None else ""
+                if date_text.startswith('<![CDATA['):
+                    date_text = date_text[9:-3]  # CDATA 태그 제거
+                
+                # 작성자 추출
+                author_elem = item.find('author')
+                author = author_elem.text if author_elem is not None else ""
+                if author.startswith('<![CDATA['):
+                    author = author[9:-3]  # CDATA 태그 제거
                 
                 # 날짜 형식 변환
                 try:
                     # RSS 날짜 형식 (예: Wed, 02 Jul 2025 23:17:42 GMT)
                     if 'GMT' in date_text:
                         date_obj = datetime.strptime(date_text, "%a, %d %b %Y %H:%M:%S GMT")
+                    elif 'T' in date_text:
+                        # ISO 형식 (예: 2025-09-25T19:16:27)
+                        date_obj = datetime.strptime(date_text.split('T')[0], "%Y-%m-%d")
                     else:
                         # RSS 날짜 형식 (예: Mon, 24 Jun 2025 10:30:00 +0900)
-                        date_obj = datetime.strptime(date_text, "%a, %d %b %Y %H:%M:%S %z")
+                        try:
+                            date_obj = datetime.strptime(date_text, "%a, %d %b %Y %H:%M:%S %z")
+                        except ValueError:
+                            # 다른 형식 시도
+                            date_obj = datetime.strptime(date_text, "%Y-%m-%d %H:%M:%S")
                     
                     formatted_date = date_obj.strftime('%Y-%m-%d')
                 except ValueError:
@@ -122,7 +147,7 @@ def crawl_school_notices(url, site_name=None):
                 notice_data = {
                     "number": str(len(notices) + 1),
                     "title": title,
-                    "author": "",
+                    "author": author,
                     "date": formatted_date,
                     "views": "0",
                     "url": link
@@ -164,11 +189,11 @@ def crawl_school_notices(url, site_name=None):
     return result
 
 if __name__ == "__main__":
-    # 남성중학교 RSS URL
-    test_url = "https://school.jbedu.kr/rss/jb-namsung/M010602"
-    result = crawl_school_notices(test_url, "남성중학교")
+    # 율곡중학교 RSS URL
+    test_url = "http://yulgok-m.goepj.kr/yulgok-m/na/ntt/selectRssFeed.do?mi=10151&bbsId=6774"
+    result = crawl_school_notices(test_url, "율곡중학교")
     
     # 모든 공지사항 출력
     print("\n공지사항 목록:")
     for i, notice in enumerate(result["notices"], 1):
-        print(f"{i}. {notice.get('title')} ({notice.get('date')})") 
+        print(f"{i}. {notice.get('title')} ({notice.get('date')}) - {notice.get('author')}") 
