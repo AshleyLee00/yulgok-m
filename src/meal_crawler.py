@@ -227,6 +227,11 @@ def generate_meal_html(meals, school_name):
                 margin-top: 9px;
                 padding-top: 9px;
             }
+            .calorie {
+                font-size: 1.2rem;
+                margin-top: 9px;
+                padding-top: 9px;
+            }
             .notice-text {
                 font-size: 1.3rem;
                 margin: 13px auto;
@@ -326,6 +331,11 @@ def generate_meal_html(meals, school_name):
                 margin-top: 5px;
                 padding-top: 5px;
             }
+            .calorie {
+                font-size: 1.2rem;
+                margin-top: 5px;
+                padding-top: 5px;
+            }
             .notice-text {
                 font-size: 1.2rem;
                 margin: 7px auto;
@@ -375,6 +385,11 @@ def generate_meal_html(meals, school_name):
                 margin-top: 5px;
                 padding-top: 5px;
             }
+            .calorie {
+                font-size: 1.1rem;
+                margin-top: 5px;
+                padding-top: 5px;
+            }
             .notice-text {
                 font-size: 1.1rem;
                 margin: 7px auto;
@@ -420,6 +435,11 @@ def generate_meal_html(meals, school_name):
                 margin-bottom: 3px;
             }
             .allergen {
+                font-size: 1rem;
+                margin-top: 4px;
+                padding-top: 4px;
+            }
+            .calorie {
                 font-size: 1rem;
                 margin-top: 4px;
                 padding-top: 4px;
@@ -474,6 +494,11 @@ def generate_meal_html(meals, school_name):
                 margin-bottom: 4px;
             }
             .allergen {
+                font-size: 1.2rem;
+                margin-top: 6px;
+                padding-top: 6px;
+            }
+            .calorie {
                 font-size: 1.2rem;
                 margin-top: 6px;
                 padding-top: 6px;
@@ -554,6 +579,15 @@ def generate_meal_html(meals, school_name):
             padding-top: 10px;
         }
 
+        .calorie {
+            font-size: 1.4rem;
+            color: #008b8b;
+            margin-top: 10px;
+            font-weight: 600;
+            border-top: 1px solid #eee;
+            padding-top: 10px;
+        }
+
         /* 반응형 디자인 수정 */
         @media (max-width: 1400px) {
             .meal-container {
@@ -581,6 +615,11 @@ def generate_meal_html(meals, school_name):
                 margin-top: 9px;
                 padding-top: 9px;
             }
+            .calorie {
+                font-size: 1.6rem;
+                margin-top: 9px;
+                padding-top: 9px;
+            }
         }
 
         @media (max-height: 800px) {
@@ -604,6 +643,16 @@ def generate_meal_html(meals, school_name):
                 margin-bottom: 5px;
             }
             .allergen {
+                font-size: 1.3rem;
+                margin-top: 9px;
+                padding-top: 9px;
+            }
+            .calorie {
+                font-size: 1.3rem;
+                margin-top: 9px;
+                padding-top: 9px;
+            }
+            .calorie {
                 font-size: 1.3rem;
                 margin-top: 9px;
                 padding-top: 9px;
@@ -932,9 +981,13 @@ def generate_meal_html(meals, school_name):
                     font-size: calc(1.7rem * var(--dynamic-font-scale)) !important;
                 }
                 
-                .allergen {
-                    font-size: calc(1.4rem * var(--dynamic-font-scale)) !important;
-                }
+            .allergen {
+                font-size: calc(1.4rem * var(--dynamic-font-scale)) !important;
+            }
+            
+            .calorie {
+                font-size: calc(1.4rem * var(--dynamic-font-scale)) !important;
+            }
                 
                 .notice-text {
                     font-size: calc(1.6rem * var(--dynamic-font-scale)) !important;
@@ -1012,6 +1065,13 @@ def generate_meal_html(meals, school_name):
         if allergens:
             allergen_text = f'<div class="allergen">알레르기 유발 식품: {", ".join(allergens)}</div>'
         
+        # 칼로리 정보 추출
+        calorie_text = ""
+        if 'CAL_INFO' in meal and meal['CAL_INFO']:
+            calorie_value = meal['CAL_INFO'].strip()
+            if calorie_value:
+                calorie_text = f'<div class="calorie">칼로리: {calorie_value}</div>'
+        
         meal_cards += f"""
             <div class="meal-day-container">
                 <div class="meal-date">{formatted_date}</div>
@@ -1019,6 +1079,7 @@ def generate_meal_html(meals, school_name):
                     <div class="meal-menu">
                         {menu_html}
                     </div>
+                    {calorie_text}
                     {allergen_text}
                 </div>
             </div>

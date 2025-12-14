@@ -190,6 +190,11 @@
                 margin-top: 9px;
                 padding-top: 9px;
             }
+            .calorie {
+                font-size: 1.2rem;
+                margin-top: 9px;
+                padding-top: 9px;
+            }
             .notice-text {
                 font-size: 1.3rem;
                 margin: 13px auto;
@@ -289,6 +294,11 @@
                 margin-top: 5px;
                 padding-top: 5px;
             }
+            .calorie {
+                font-size: 1.2rem;
+                margin-top: 5px;
+                padding-top: 5px;
+            }
             .notice-text {
                 font-size: 1.2rem;
                 margin: 7px auto;
@@ -338,6 +348,11 @@
                 margin-top: 5px;
                 padding-top: 5px;
             }
+            .calorie {
+                font-size: 1.1rem;
+                margin-top: 5px;
+                padding-top: 5px;
+            }
             .notice-text {
                 font-size: 1.1rem;
                 margin: 7px auto;
@@ -383,6 +398,11 @@
                 margin-bottom: 3px;
             }
             .allergen {
+                font-size: 1rem;
+                margin-top: 4px;
+                padding-top: 4px;
+            }
+            .calorie {
                 font-size: 1rem;
                 margin-top: 4px;
                 padding-top: 4px;
@@ -437,6 +457,11 @@
                 margin-bottom: 4px;
             }
             .allergen {
+                font-size: 1.2rem;
+                margin-top: 6px;
+                padding-top: 6px;
+            }
+            .calorie {
                 font-size: 1.2rem;
                 margin-top: 6px;
                 padding-top: 6px;
@@ -517,6 +542,15 @@
             padding-top: 10px;
         }
 
+        .calorie {
+            font-size: 1.4rem;
+            color: #008b8b;
+            margin-top: 10px;
+            font-weight: 600;
+            border-top: 1px solid #eee;
+            padding-top: 10px;
+        }
+
         /* 반응형 디자인 수정 */
         @media (max-width: 1400px) {
             .meal-container {
@@ -544,6 +578,11 @@
                 margin-top: 9px;
                 padding-top: 9px;
             }
+            .calorie {
+                font-size: 1.6rem;
+                margin-top: 9px;
+                padding-top: 9px;
+            }
         }
 
         @media (max-height: 800px) {
@@ -567,6 +606,16 @@
                 margin-bottom: 5px;
             }
             .allergen {
+                font-size: 1.3rem;
+                margin-top: 9px;
+                padding-top: 9px;
+            }
+            .calorie {
+                font-size: 1.3rem;
+                margin-top: 9px;
+                padding-top: 9px;
+            }
+            .calorie {
                 font-size: 1.3rem;
                 margin-top: 9px;
                 padding-top: 9px;
@@ -611,6 +660,7 @@
                     <div class="meal-menu">
                         <span>칼슘귀리밥 </span><span>김치콩나물국 (5.9)</span><span>볼어묵곤약조림 (1.5.6.13)</span><span>조기구이 (5.13)</span><span>석박지 </span><span>양념깻잎지 </span>
                     </div>
+                    <div class="calorie">칼로리: 808.4 Kcal</div>
                     
                 </div>
             </div>
@@ -621,6 +671,7 @@
                     <div class="meal-menu">
                         <span>칼슘율무밥 </span><span>닭곰탕 (13.15)</span><span>팽이숙주나물무침 </span><span>오리고추장불고기 (5.6.13.18)</span><span>배추김치 </span><span>마시는샐러드음료(그린/오렌지)선택 </span>
                     </div>
+                    <div class="calorie">칼로리: 835.8 Kcal</div>
                     <div class="allergen">알레르기 유발 식품: 13</div>
                 </div>
             </div>
@@ -631,6 +682,7 @@
                     <div class="meal-menu">
                         <span>베이컨김치볶음밥 (1.2.5.6.9.10.13.15.16)</span><span>불고기사각피자 (1.2.5.6.10.12.13.15.16)</span><span>쑥갓어묵국 (1.5.6)</span><span>건파래볶음 (5.13)</span><span>데리야끼닭꼬치 (5.6.13.15)</span><span>단무지 </span>
                     </div>
+                    <div class="calorie">칼로리: 924.5 Kcal</div>
                     
                 </div>
             </div>
@@ -641,6 +693,7 @@
                     <div class="meal-menu">
                         <span>칼슘잡곡밥 </span><span>우리쌀단팥호빵 (1.2.5.6)</span><span>해물짬뽕국 (5.6.9.13.17.18)</span><span>톳두부무침 (5.6)</span><span>궁중떡볶이 (1.5.6.13.16)</span><span>배추김치 </span>
                     </div>
+                    <div class="calorie">칼로리: 890.5 Kcal</div>
                     <div class="allergen">알레르기 유발 식품: 9</div>
                 </div>
             </div>
@@ -651,6 +704,7 @@
                     <div class="meal-menu">
                         <span>칼슘현미밥 </span><span>얼큰동태알탕 (5.6.13)</span><span>진미채고추장조림 (1.5.6.13.17)</span><span>닭봉데리야끼구이 (5.6.12.13.15)</span><span>배추김치 </span>
                     </div>
+                    <div class="calorie">칼로리: 828.2 Kcal</div>
                     <div class="allergen">알레르기 유발 식품: 9</div>
                 </div>
             </div>
@@ -771,7 +825,7 @@
         }
 
         async function fetchWeather() {
-            const apiKey = '91fff999310c2bdea1978b3f0925fb38';
+            const apiKey = '';
             const lat = 37.7599;
             const lon = 126.7733;
             const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
@@ -968,9 +1022,13 @@
                     font-size: calc(1.7rem * var(--dynamic-font-scale)) !important;
                 }
                 
-                .allergen {
-                    font-size: calc(1.4rem * var(--dynamic-font-scale)) !important;
-                }
+            .allergen {
+                font-size: calc(1.4rem * var(--dynamic-font-scale)) !important;
+            }
+            
+            .calorie {
+                font-size: calc(1.4rem * var(--dynamic-font-scale)) !important;
+            }
                 
                 .notice-text {
                     font-size: calc(1.6rem * var(--dynamic-font-scale)) !important;
